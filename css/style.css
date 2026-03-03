@@ -1,0 +1,463 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap');
+
+/* Variáveis globais */
+:root {
+    --vermelho: #8E2424;
+    --vermelho-claro: rgba(142, 36, 36, 0.07);
+    --escuro: #101828;
+    --medio: #3A404E;
+    --suave: #667085;
+    --borda: #EAECF0;
+    --branco: #ffffff;
+    --fonte: 'Sora', sans-serif;
+    --arredondado: 12px;
+    --sombra: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.05);
+    --largura-max: 1100px;
+    --altura-nav: 72px;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fonte);
+    font-size: 1rem;
+    color: var(--escuro);
+    background: var(--branco);
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Rótulo vermelho reutilizável */
+.rotulo {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--vermelho);
+}
+
+/* Variação do rótulo com fundo em pílula */
+.rotulo.destaque {
+    background: var(--vermelho-claro);
+    padding: 6px 14px;
+    border-radius: 999px;
+}
+
+/* Estilo base compartilhado entre os botões */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: var(--arredondado);
+    font-family: var(--fonte);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+/* Botão transparente para ação secundária */
+.btn.fantasma {
+    color: var(--suave);
+    background: transparent;
+}
+
+.btn.fantasma:hover {
+    color: var(--escuro);
+}
+
+/* Botão vermelho para ação principal */
+.btn.primario {
+    background: var(--vermelho);
+    color: var(--branco);
+}
+
+.btn.primario:hover {
+    opacity: 0.88;
+}
+
+/* Header fixo no topo com borda inferior */
+.cabecalho {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--altura-nav);
+    background: var(--branco);
+    border-bottom: 1px solid var(--borda);
+    z-index: 100;
+}
+
+/* Barra de navegação centralizada */
+.nav {
+    max-width: var(--largura-max);
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+/* Logo: ícone ao lado do nome da empresa */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.logo img {
+    width: 28px;
+    height: 28px;
+}
+
+.logo span {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--medio);
+}
+
+/* Links de navegação alinhados à esquerda */
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    margin-right: auto;
+}
+
+.menu a {
+    font-size: 0.9375rem;
+    color: var(--suave);
+    font-weight: 500;
+    min-width: 77.5px;
+    transition: color 0.2s;
+}
+
+.menu a:hover {
+    color: var(--escuro);
+}
+
+/* Botões de conta ancorados à direita */
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+/* Empurra o conteúdo para baixo do header fixo */
+main {
+    padding-top: var(--altura-nav);
+}
+
+/* Seção "Sobre nós" centralizada */
+.sobre {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 80px 24px 64px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.sobre h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.sobre p {
+    font-size: 1.0625rem;
+    color: var(--suave);
+    max-width: 560px;
+}
+
+/* Seção de métricas com fundo cinza claro */
+.metricas {
+    background: #FAFAFA;
+    border-top: 1px solid var(--borda);
+    border-bottom: 1px solid var(--borda);
+    padding: 56px 24px;
+}
+
+/* Grade de 4 colunas para os números */
+.metricas-grade {
+    max-width: var(--largura-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+/* Número grande em destaque vermelho */
+.metrica strong {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--vermelho);
+    display: block;
+}
+
+.metrica h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 10px 0 6px;
+}
+
+.metrica p {
+    font-size: 0.9375rem;
+    color: var(--suave);
+}
+
+/* Seção de vagas com largura máxima */
+.vagas {
+    max-width: var(--largura-max);
+    margin: 0 auto;
+    padding: 80px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+/* Introdução com título, subtítulo e foto da equipe */
+.vagas-intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+}
+
+.vagas-intro h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 700;
+}
+
+.vagas-intro p {
+    color: var(--suave);
+}
+
+.vagas-intro img {
+    width: 100%;
+    max-height: 340px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-top: 16px;
+}
+
+/* Agrupa os cards por área */
+.vagas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* Título da área com linha divisória */
+.categoria h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--borda);
+}
+
+/* Card individual de uma vaga */
+.vaga {
+    padding: 20px;
+    border: 1px solid var(--borda);
+    border-radius: var(--arredondado);
+    box-shadow: var(--sombra);
+    margin-bottom: 12px;
+    transition: box-shadow 0.2s;
+}
+
+.vaga:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.vaga h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+/* Regime e salário lado a lado */
+.vaga-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--suave);
+    font-size: 0.9375rem;
+}
+
+/* Tag de regime de contratação */
+.tag {
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+}
+
+/* Seção de depoimento com fundo cinza claro */
+.depoimento {
+    background: #FAFAFA;
+    border-top: 1px solid var(--borda);
+    border-bottom: 1px solid var(--borda);
+    padding: 80px 24px;
+}
+
+/* Texto do depoimento centralizado */
+.depoimento-texto {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.depoimento-texto h2 {
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
+    font-weight: 700;
+}
+
+.depoimento-texto p {
+    color: var(--suave);
+}
+
+/* Foto, nome e cargo do colaborador */
+.depoimento-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.depoimento-card img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--borda);
+}
+
+.depoimento-card strong {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.depoimento-card span {
+    font-size: 0.9375rem;
+    color: var(--suave);
+}
+
+/* Seção de inscrição por e-mail */
+.newsletter {
+    padding: 80px 24px;
+}
+
+.newsletter-conteudo {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.newsletter-conteudo h2 {
+    font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+}
+
+.newsletter-conteudo p {
+    color: var(--suave);
+}
+
+/* Input e botão lado a lado */
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.newsletter-form input {
+    flex: 1;
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid var(--borda);
+    border-radius: var(--arredondado);
+    font-family: var(--fonte);
+    font-size: 0.9375rem;
+    color: var(--escuro);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.newsletter-form input:focus {
+    border-color: var(--vermelho);
+}
+
+/* Rodapé escuro com copyright */
+.rodape {
+    padding: 32px 24px;
+    text-align: center;
+    color: var(--medio);
+    font-size: 0.875rem;
+}
+
+/* Tablet: métricas em 2 colunas, formulário empilhado */
+@media (max-width: 768px) {
+    .metricas-grade {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+    }
+}
+
+/* Mobile: esconde menu, empilha métricas e info das vagas */
+@media (max-width: 520px) {
+    .menu {
+        display: none;
+    }
+
+    .acoes {
+        margin-left: auto;
+    }
+
+    .metricas-grade {
+        grid-template-columns: 1fr;
+    }
+
+    .vaga-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}
